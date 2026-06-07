@@ -50,10 +50,11 @@ namespace SpectatorHUD.SDK
         [MenuItem("Window/SpectatorHUD/Configure Project")]
         public static void SetupAssets()
         {
-            string path = FileUtil.GetPhysicalPath("Packages/dev.millzy.spectatorhud.sdk");
-            string packageAssets = Path.Join(path, "Editor", "Assets~");
+            string packagePath = FileUtil.GetPhysicalPath("Packages/dev.millzy.spectatorhud.sdk");
+            string packageAssets = Path.Join(packagePath, "Editor", "Assets~");
             string projectAssets = FileUtil.GetPhysicalPath("Assets/SpectatorHUD");
             
+            // Copy to project directory so mod can deserialize properly, as well as allowing references in editor
             CopyDirectoryForceRecurse(packageAssets, projectAssets);
             
             // Reload scripts
