@@ -1,7 +1,9 @@
 {
     "name": "SpectatorHUD.SDK",
     "rootNamespace": "SpectatorHUD.SDK",
-    "references": [],
+    "references": [
+        "GUID:8aec614af40e1df468e2484aa8ed6655"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

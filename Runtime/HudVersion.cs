@@ -16,15 +16,12 @@
  *      along with this program.  If not, see https://www.gnu.org/licenses/.
  */
 
-using System;
+using UnityEngine;
 
-namespace SpectatorHUD.SDK
+namespace SpectatorHUD
 {
-    [Serializable]
-    public class HudV1
+    public class HudVersion : ScriptableObject
     {
-        public string name;
-        public string version;
-        public string author;
+        public int version;
     }
 }

@@ -16,28 +16,66 @@
  *      along with this program.  If not, see https://www.gnu.org/licenses/.
  */
 
+using System.IO;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class HudCreator : EditorWindow
-{
-    [MenuItem("Window/SpectatorHUD/Create HUD")]
-    public static void ShowExample()
-    {
-        var window = GetWindow<HudCreator>();
-        window.titleContent = new GUIContent("Create HUD");
-    }
+using HudManifest = SpectatorHUD.HudV1;
 
-    public void CreateGUI()
+namespace SpectatorHUD.SDK
+{
+    public class HudCreator : EditorWindow
     {
-        VisualElement root = rootVisualElement;
+        public const int CurrentVersion = 1;
         
-        var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Packages/dev.millzy.spectatorhud.sdk/Editor/HudCreator.uxml");
-        VisualElement content = visualTree.Instantiate();
-        root.Add(content);
+        [MenuItem("Window/SpectatorHUD/Create HUD")]
+        public static void ShowExample()
+        {
+            var window = GetWindow<HudCreator>();
+            window.titleContent = new GUIContent("Create HUD");
+        }
+
+        public void CreateGUI()
+        {
+            VisualElement root = rootVisualElement;
         
-        var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Packages/dev.millzy.spectatorhud.sdk/Editor/HudCreator.uss");
-        root.styleSheets.Add(styleSheet);
+            var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Packages/dev.millzy.spectatorhud.sdk/Editor/HudCreator.uxml");
+            VisualElement content = visualTree.Instantiate();
+            root.Add(content);
+
+            var createButton = root.Q<Button>("create-button");
+            createButton.clicked += OnCreateClick;
+        }
+
+        private void OnCreateClick()
+        {
+            VisualElement root = rootVisualElement;
+            var hudName = root.Q<TextField>("name");
+            var hudVersion = root.Q<IntegerField>("version");
+            var hudAuthor = root.Q<TextField>("author");
+
+            // Create folder to contain all the HUD assets
+            AssetDatabase.CreateFolder("Assets", hudName.value);
+            string hudPath = Path.Join("Assets", hudName.value);
+            
+            // Create version asset
+            var versionAsset = ScriptableObject.CreateInstance<HudVersion>();
+            versionAsset.version = CurrentVersion;
+            string versionAssetPath = Path.Join(hudPath, "Hud.Version.asset");
+            AssetDatabase.CreateAsset(versionAsset, versionAssetPath);
+            
+            // Create manifest asset
+            var hudManifestAsset = ScriptableObject.CreateInstance<HudManifest>();
+            hudManifestAsset.hudName = hudName.value;
+            hudManifestAsset.hudVersion = hudVersion.value;
+            hudManifestAsset.hudAuthor = hudAuthor.value;
+            string hudManifestAssetPath = Path.Join(hudPath, "Hud.asset");
+            AssetDatabase.CreateAsset(hudManifestAsset, hudManifestAssetPath);
+            
+            // Save
+            AssetDatabase.SaveAssets();
+        }
     }
 }

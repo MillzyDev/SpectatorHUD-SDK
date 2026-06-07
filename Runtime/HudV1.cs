@@ -1,4 +1,4 @@
-/*
+﻿/*
  *      SpectatorHUD SDK
  *      Copyright (C) 2026  Millzy
  *
@@ -15,3 +15,15 @@
  *      You should have received a copy of the GNU General Public License
  *      along with this program.  If not, see https://www.gnu.org/licenses/.
  */
+
+using UnityEngine;
+
+namespace SpectatorHUD
+{
+    public class HudV1 : ScriptableObject
+    {
+        public string hudName;
+        public int hudVersion;
+        public string hudAuthor;
+    }
+}

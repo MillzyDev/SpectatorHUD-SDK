@@ -1,31 +1,11 @@
-<!-- 
-        SpectatorHUD SDK
-        Copyright (C) 2026  Millzy
-
-        This program is free software: you can redistribute it and/or modify
-        it under the terms of the GNU General Public License as published by
-        the Free Software Foundation, either version 3 of the License, or
-        (at your option) any later version.
-
-        This program is distributed in the hope that it will be useful,
-        but WITHOUT ANY WARRANTY; without even the implied warranty of
-        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-        GNU General Public License for more details.
-
-        You should have received a copy of the GNU General Public License
-        along with this program.  If not, see <https://www.gnu.org/licenses/>.
--->
-
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:GroupBox>
-        <ui:Label text="Create a new HUD" display-tooltip-when-elided="true" />
+        <ui:Label text="Create New HUD" display-tooltip-when-elided="false" enable-rich-text="true" style="-unity-font-style: bold; -unity-text-align: upper-center; font-size: 14px;" />
     </ui:GroupBox>
     <ui:GroupBox>
-        <ui:TextField picking-mode="Ignore" label="Version*" style="flex-direction: row; justify-content: flex-start; align-items: auto;" />
-        <ui:TextField picking-mode="Ignore" label="Author" />
-        <ui:TextField picking-mode="Ignore" label="Name*" style="align-items: auto;" />
+        <ui:TextField picking-mode="Ignore" label="Name" name="name" style="align-items: auto;" />
+        <uie:IntegerField picking-mode="Ignore" label="Version" value="1" text="filler text" is-delayed="false" name="version" style="-unity-text-align: upper-left; align-items: auto; opacity: 1; padding-left: -14px; transform-origin: left top; flex-direction: row; flex-wrap: nowrap;" />
+        <ui:TextField picking-mode="Ignore" label="Author" name="author" style="align-items: auto;" />
     </ui:GroupBox>
-    <ui:GroupBox>
-        <ui:Toggle label="Create from template" />
-    </ui:GroupBox>
+    <ui:Button text="Create" display-tooltip-when-elided="true" name="create-button" />
 </ui:UXML>
