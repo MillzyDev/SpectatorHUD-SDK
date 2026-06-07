@@ -16,6 +16,7 @@
  *      along with this program.  If not, see https://www.gnu.org/licenses/.
  */
 
+using System;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
@@ -24,31 +25,36 @@ namespace SpectatorHUD.SDK
 {
     public static class Setup
     {
+        private static void CopyDirectoryForceRecurse(string source, string destination)
+        {
+            string[] directories = Directory.GetDirectories(source, "*", SearchOption.AllDirectories);
+            foreach (string directory in directories)
+            {
+                string dirName = Path.GetRelativePath(source, directory);
+                string destDir = Path.Join(destination, dirName);
+                Directory.CreateDirectory(destDir);
+                
+                // Recursive copy to new subdirectory
+                CopyDirectoryForceRecurse(directory, destDir);
+            }
+
+            string[] files = Directory.GetFiles(source);
+            foreach (string file in files)
+            {
+                string fileName = Path.GetFileName(file);
+                string destFile = Path.Join(destination, fileName);
+                File.Copy(file, destFile, true);
+            }
+        }
+        
         [MenuItem("Window/SpectatorHUD/Configure Project")]
         public static void SetupAssets()
         {
             string path = FileUtil.GetPhysicalPath("Packages/dev.millzy.spectatorhud.sdk");
             string packageAssets = Path.Join(path, "Editor", "Assets~");
-            string projectAssetsRoot = FileUtil.GetPhysicalPath("Assets/SpectatorHUD");
-            string projectAssets = Path.Join(projectAssetsRoot, "SDK");
-
-            // Remove old assets directory
-            if (Directory.Exists(projectAssetsRoot))
-            {
-                Directory.Delete(projectAssetsRoot, true);
-            }
-            // Recreate assets directory
-            AssetDatabase.CreateFolder("Assets", "SpectatorHUD");
-            AssetDatabase.CreateFolder("Assets/SpectatorHUD", "SDK");
-
-            // Copy all files from the package's to the main project
-            string[] files = Directory.GetFiles(packageAssets);
-            foreach (string file in files)
-            {
-                string fileName = Path.GetFileName(file);
-                string dest = Path.Join(projectAssets, fileName);
-                File.Copy(file, dest, true);
-            }
+            string projectAssets = FileUtil.GetPhysicalPath("Assets/SpectatorHUD");
+            
+            CopyDirectoryForceRecurse(packageAssets, projectAssets);
             
             // Reload scripts
             AssetDatabase.Refresh();
