@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:GroupBox>
+        <ui:Label text="Create a new HUD" display-tooltip-when-elided="true" />
+    </ui:GroupBox>
+    <ui:GroupBox>
+        <ui:TextField picking-mode="Ignore" label="Version*" style="flex-direction: row; justify-content: flex-start; align-items: auto;" />
+        <ui:TextField picking-mode="Ignore" label="Author" />
+        <ui:TextField picking-mode="Ignore" label="Name*" style="align-items: auto;" />
+    </ui:GroupBox>
+    <ui:GroupBox>
+        <ui:Toggle label="Create from template" />
+    </ui:GroupBox>
+</ui:UXML>
