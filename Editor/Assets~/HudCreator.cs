@@ -76,6 +76,11 @@ namespace SpectatorHUD.SDK
             
             // Save
             AssetDatabase.SaveAssets();
+
+            Selection.activeObject = hudManifestAsset;
+            EditorGUIUtility.PingObject(hudManifestAsset);
+            
+            Close();
         }
     }
 }
