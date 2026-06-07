@@ -27,17 +27,19 @@ namespace SpectatorHUD.SDK
     {
         private static void CopyDirectoryForceRecurse(string source, string destination)
         {
+            // Recurse over all subdirectories
             string[] directories = Directory.GetDirectories(source, "*", SearchOption.AllDirectories);
             foreach (string directory in directories)
             {
                 string dirName = Path.GetRelativePath(source, directory);
                 string destDir = Path.Join(destination, dirName);
-                Directory.CreateDirectory(destDir);
+                Directory.CreateDirectory(destDir); // Create directory for next recursion
                 
                 // Recursive copy to new subdirectory
                 CopyDirectoryForceRecurse(directory, destDir);
             }
 
+            // Copy each top-level file
             string[] files = Directory.GetFiles(source);
             foreach (string file in files)
             {
