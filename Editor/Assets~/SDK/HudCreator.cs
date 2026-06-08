@@ -16,6 +16,8 @@
  *      along with this program.  If not, see https://www.gnu.org/licenses/.
  */
 
+#if UNITY_EDITOR
+
 using System.IO;
 using UnityEditor;
 using UnityEditor.UIElements;
@@ -84,3 +86,5 @@ namespace SpectatorHUD.SDK
         }
     }
 }
+
+#endif
