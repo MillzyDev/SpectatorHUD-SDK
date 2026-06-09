@@ -32,7 +32,7 @@ namespace SpectatorHUD.SDK
 
             // Get assets paths to include in bundle
             string hudManifestTarget = AssetDatabase.GetAssetPath(hudTarget);
-            string hudVersionTarget = AssetDatabase.GetAssetPath(hudTarget.hudVersion);
+            string hudVersion = AssetDatabase.GetAssetPath(hudTarget.manifestVersion);
             string hudAsset = AssetDatabase.GetAssetPath(hudTarget.hudAsset);
 
             // Get save location
@@ -42,7 +42,7 @@ namespace SpectatorHUD.SDK
             // Create bundle
             var bundleBuild = new AssetBundleBuild();
             bundleBuild.assetBundleName = filename;
-            bundleBuild.assetNames = new string[] { hudManifestTarget, hudVersionTarget, hudAsset };
+            bundleBuild.assetNames = new string[] { hudManifestTarget, hudVersion, hudAsset };
 
             // Create build output directory
             AssetDatabase.CreateFolder("Assets", "_SH Build");
@@ -54,7 +54,7 @@ namespace SpectatorHUD.SDK
 
             // Copy output to proper save location
             string buildOutput = FileUtil.GetPhysicalPath(Path.Combine("Assets/_SH Build", filename));
-            File.Copy(buildOutput, saveFilePath);
+            File.Copy(buildOutput, saveFilePath, true);
             
             EditorUtility.RevealInFinder(saveFilePath);
         }

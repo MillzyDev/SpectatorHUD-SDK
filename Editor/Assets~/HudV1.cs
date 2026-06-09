@@ -25,8 +25,9 @@ namespace SpectatorHUD
         public string hudName;
         public int hudVersion;
         public string hudAuthor;
-        
-        [InspectorName("HUD Asset")]
+
+        [InspectorName("HUD Asset")] 
+        public HudVersion manifestVersion;
         public GameObject hudAsset;
     }
 }

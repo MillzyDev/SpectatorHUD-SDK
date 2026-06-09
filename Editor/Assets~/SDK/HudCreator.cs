@@ -73,6 +73,7 @@ namespace SpectatorHUD.SDK
             hudManifestAsset.hudName = hudName.value;
             hudManifestAsset.hudVersion = hudVersion.value;
             hudManifestAsset.hudAuthor = hudAuthor.value;
+            hudManifestAsset.manifestVersion = versionAsset;
             string hudManifestAssetPath = Path.Join(hudPath, "Hud.asset");
             AssetDatabase.CreateAsset(hudManifestAsset, hudManifestAssetPath);
             
