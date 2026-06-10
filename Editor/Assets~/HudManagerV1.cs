@@ -22,7 +22,7 @@ using UnityEngine;
 
 namespace SpectatorHUD
 {
-    public class HudManager : MonoBehaviour
+    public class HudManagerV1 : MonoBehaviour
     {
 #if UNITY_EDITOR
         [Header("Counters")]
