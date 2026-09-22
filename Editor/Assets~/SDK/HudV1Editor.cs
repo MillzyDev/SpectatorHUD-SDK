@@ -45,7 +45,10 @@ namespace SpectatorHUD.SDK
             bundleBuild.assetNames = new string[] { hudManifestTarget, hudVersion, hudAsset };
 
             // Create build output directory
-            AssetDatabase.CreateFolder("Assets", "_SH Build");
+            if (!AssetDatabase.IsValidFolder("Assets/_SH Build"))
+            {
+                AssetDatabase.CreateFolder("Assets", "_SH Build");
+            }
 
             // Build bundle
             AssetBundleBuild[] bundles = { bundleBuild };
