@@ -20,6 +20,8 @@ using UnityEngine;
 
 namespace SpectatorHUD
 {
+	// Describes what features are required for the mod to support;
+	// SpectatorHUD checks this number, and decides if the HUD is supported.
     public class HudVersion : ScriptableObject
     {
         public int version;
