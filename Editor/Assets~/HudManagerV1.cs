@@ -16,17 +16,16 @@
  *      along with this program.  If not, see https://www.gnu.org/licenses/.
  */
 
+using System.Collections.Generic;
+using SpectatorHUD.Animation;
 using TMPro;
-using UltEvents;
 using UnityEngine;
 
 namespace SpectatorHUD
 {
     public class HudManagerV1 : MonoBehaviour
     {
-#if UNITY_EDITOR
         [Header("Counters")]
-#endif
         public TMP_Text leftHandReserveCounter;
         public TMP_Text leftHandAmmoCounter;
         public TMP_Text rightHandReserveCounter;
@@ -34,14 +33,30 @@ namespace SpectatorHUD
         public TMP_Text healthCounter;
         public TMP_Text maxHealthCounter;
 
-#if UNITY_EDITOR
-        [Header("UltEvents")]
-#endif
-        public UltEvent<float> leftHandReserveCounterChanged;
-        public UltEvent<float> leftHandAmmoCounterChanged;
-        public UltEvent<float> rightHandReserveCounterChanged;
-        public UltEvent<float> rightHandAmmoCounterChanged;
-        public UltEvent<float> healthCounterChanged;
-        public UltEvent<float> maxHealthCounterChanged;
+        [Header("Toggleable Elements")] 
+        public List<GameObject> activeWithGunHeldInLeftHand;
+        public List<GameObject> activeWithGunHeldInRightHand;
+
+        [Header("Animation Events")] 
+        public List<AnimationBoolReference> animationLeftGunHeld;
+        public List<AnimationBoolReference> animationRightGunHeld;
+        public List<AnimationTriggerReference> animationLeftGunHeldChanged;
+        public List<AnimationTriggerReference> animationRightGunHeldChanged;
+
+        public List<AnimationIntReference> animationLeftAmmo;
+        public List<AnimationIntReference> animationRightAmmo;
+        public List<AnimationTriggerReference> animationLeftAmmoChanged;
+        public List<AnimationTriggerReference> animationRightAmmoChanged;
+        
+        public List<AnimationIntReference> animationLeftReserve;
+        public List<AnimationIntReference> animationRightReserve;
+        public List<AnimationTriggerReference> animationLeftReserveChanged;
+        public List<AnimationTriggerReference> animationRightReserveChanged;
+
+        public List<AnimationFloatReference> animationHealth;
+        public List<AnimationFloatReference> animationMaxHealth;
+        public List<AnimationFloatReference> animationHealthPercentage;
+        public List<AnimationTriggerReference> animationHealthChanged;
+        public List<AnimationTriggerReference> animationMaxHealthChanged;
     }
 }
