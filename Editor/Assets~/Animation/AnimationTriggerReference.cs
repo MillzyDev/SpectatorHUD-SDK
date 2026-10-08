@@ -26,5 +26,6 @@ namespace SpectatorHUD.Animation
     {
         public Animator animator;
         public string parameterName;
+        [NonSerialized] public int parameterId;
     }
 }
