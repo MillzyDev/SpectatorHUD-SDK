@@ -32,6 +32,7 @@ namespace SpectatorHUD
         public TMP_Text rightHandAmmoCounter;
         public TMP_Text healthCounter;
         public TMP_Text maxHealthCounter;
+        public TMP_Text percentageHealthCounter;
 
         [Header("Toggleable Elements")] 
         public List<GameObject> activeWithGunHeldInLeftHand;
