@@ -32,11 +32,22 @@ namespace SpectatorHUD
         public List<AnimationIntReference> animationRightAmmo;
         public List<AnimationTriggerReference> animationLeftAmmoChanged;
         public List<AnimationTriggerReference> animationRightAmmoChanged;
-        
+
         public List<AnimationIntReference> animationLeftReserve;
         public List<AnimationIntReference> animationRightReserve;
         public List<AnimationTriggerReference> animationLeftReserveChanged;
         public List<AnimationTriggerReference> animationRightReserveChanged;
+
+        public List<AnimationIntReference> animationTotalLeftAmmo;
+        public List<AnimationIntReference> animationTotalRightAmmo;
+        public List<AnimationIntReference> animationTotalLightAmmo;
+        public List<AnimationIntReference> animationTotalMediumAmmo;
+        public List<AnimationIntReference> animationTotalHeavyAmmo;
+        public List<AnimationTriggerReference> animationTotalLeftAmmoChanged;
+        public List<AnimationTriggerReference> animationTotalRightAmmoChanged;
+        public List<AnimationTriggerReference> animationTotalLightAmmoChanged;
+        public List<AnimationTriggerReference> animationTotalMediumAmmoChanged;
+        public List<AnimationTriggerReference> animationTotalHeavyAmmoChanged;
 
         public List<AnimationFloatReference> animationHealth;
         public List<AnimationFloatReference> animationMaxHealth;

@@ -29,6 +29,13 @@ namespace SpectatorHUD
         public TMP_Text leftHandAmmoCounter;
         public TMP_Text rightHandReserveCounter;
         public TMP_Text rightHandAmmoCounter;
+        public TMP_Text leftHandTotalAmmoCounter;
+        public TMP_Text rightHandTotalAmmoCounter;
+
+        public TMP_Text totalLightAmmoCounter;
+        public TMP_Text totalMediumAmmoCounter;
+        public TMP_Text totalHeavyAmmoCounter;
+
         public TMP_Text healthCounter;
         public TMP_Text maxHealthCounter;
         public TMP_Text percentageHealthCounter;

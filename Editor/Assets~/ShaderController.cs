@@ -27,6 +27,11 @@ namespace SpectatorHUD
         public List<ShaderIntReference> shaderRightAmmo;
         public List<ShaderIntReference> shaderLeftReserve;
         public List<ShaderIntReference> shaderRightReserve;
+        public List<ShaderIntReference> shaderTotalLeftAmmo;
+        public List<ShaderIntReference> shaderTotalRightAmmo;
+        public List<ShaderIntReference> shaderTotalLightAmmo;
+        public List<ShaderIntReference> shaderTotalMediumAmmo;
+        public List<ShaderIntReference> shaderTotalHeavyAmmo;
         public List<ShaderFloatReference> shaderHealth;
         public List<ShaderFloatReference> shaderMaxHealth;
         public List<ShaderFloatReference> shaderHealthPercentage;
