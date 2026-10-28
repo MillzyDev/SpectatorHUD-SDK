@@ -1,6 +1,6 @@
 {
     "name": "dev.millzy.spectatorhud.sdk",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "displayName": "SpectatorHUD SDK",
     "description": "Tools for creating and exporting custom HUDs for SpectatorHUD.",
     "unity": "2021.3",
