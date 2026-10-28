@@ -1,18 +1,18 @@
 # Spectator HUD SDK
 A unity package for making custom HUDs for the Spectator HUD BONELAB mod.
 
-1. [Installation](#installation)
-2. [Creating a new HUD](#creating-a-new-hud)
-   3. [Optional Considerations](#optional-considerations)
-   4. [Adding Counters](#adding-counters)
-      5. [Health Modifier](#health-modifier)
-      6. [Active With Gun Held In Hand](#active-with-gun-held-in-hand)
-   7. [Animator Integration](#animator-integration)
-      8. [TMP Material Property Overrides](#tmp-material-property-overrides)
-      9. [Random Variables](#random-variables)
-   10. [Shader Integration](#shader-integration)
-11. [Exporting your HUD](#exporting-your-hud)
-12. [License](#license)
+- [Installation](#installation)
+- [Creating a new HUD](#creating-a-new-hud)
+   - [Optional Considerations](#optional-considerations)
+   - [Adding Counters](#adding-counters)
+      - [Health Modifier](#health-modifier)
+      - [Active With Gun Held In Hand](#active-with-gun-held-in-hand)
+   - [Animator Integration](#animator-integration)
+      - [TMP Material Property Overrides](#tmp-material-property-overrides)
+      - [Random Variables](#random-variables)
+   - [Shader Integration](#shader-integration)
+- [Exporting your HUD](#exporting-your-hud)
+- [License](#license)
 
 ## Installation
 1. Get a compatible Unity environment set up. If you have a project you use for making SDK mods, I recommend using that. If not, follow the [setup guide for a Marrow SDK project](https://github.com/StressLevelZero/MarrowSDK/wiki/ProjectSetup).
